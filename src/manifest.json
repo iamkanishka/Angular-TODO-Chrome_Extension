@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "CheckToDo",
+  "description": "Task checker!!",
+  "version": "1.0.0",
+  "action":{
+    "default_popup":"index.html"
+  },
+  "host_permissions":[
+    "http://*/*",
+    "https://*/*",
+    "*://*/*"
+
+
+  ]
+
+}

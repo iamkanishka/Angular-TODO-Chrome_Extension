@@ -38,33 +38,33 @@ export class CrudService {
 
   getAllTask(): Task[] {
     var tasks: Task[]
-    tasks = JSON.parse(String(localStorage.getItem('checkToDo'))).tasks as Task[];
-    if(tasks===null){
+    tasks = JSON.parse(String(localStorage.getItem('checkToDo')))?.tasks as Task[];
+    if (tasks === null || tasks === undefined) {
       return []
-    }else{
+    } else {
       return tasks
     }
   }
 
-  deleteTask(task: Task, taskIndex:number){
+  deleteTask(task: Task, taskIndex: number) {
     let storedTasks = this.getAllTask()
-    storedTasks.splice(taskIndex,1)
+    storedTasks.splice(taskIndex, 1)
     this.setTask(storedTasks);
 
   }
 
-  editTask(task: Task, taskindex:number) {
+  editTask(task: Task, taskindex: number) {
     let storedTasks = this.getAllTask();
-    storedTasks[taskindex] =task
+    storedTasks[taskindex] = task
     this.setTask(storedTasks);
   }
 
 
-  setTask(task:Task[]){
+  setTask(task: Task[]) {
     var data = {
       tasks: task
     }
-   localStorage.setItem('checkToDo',  JSON.stringify(data));
+    localStorage.setItem('checkToDo', JSON.stringify(data));
   }
 
 
